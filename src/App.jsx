@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// App.js
+import React,{useState} from 'react';
+import React from 'react';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import About from './components/About';
+import Service from './components/Service';
+import Project from './components/Project';
+import Footer from './components/Footer';
+import './App.css'; // Import the global CSS file
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [isLoggedIn,setIsLoggedIn] = useState(false);
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <Header />
+      <Hero />
+      <About />
+      <Service />
+      <Project />
+      <Footer />
+
+      {isLoggedIn ? (
+        <p>Welcome, User! You are logged in.</p>
+      ) : (
+        <p>Please log in to continue.</p>
+      )}
+    </div>
+  );
 }
 
-export default App
+export default App;
